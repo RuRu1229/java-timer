@@ -21,11 +21,17 @@ public class DownloadURLFile {
 	    	  
 	    	long delay = 3000L; // 延遲開始執行的時間（毫秒），延遲3秒
 	        long period = 1000L; // 重複的時間（毫秒），間隔1秒
-
-	        Timer simpleTimer = new Timer();
-	        simpleTimer.schedule(new DownloadURLFile(), delay); // 只會執行一次
+	        Timer simpleTimer = new Timer(); 
+	    
+	         simpleTimer.schedule(new TimerTest(), delay);
+	         
+	        class TimerTest extends TimerTask {
+	        	public void run() {
+	      
 	        String res = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/2022-05-09-new-addressbook.csv","D:");  
-	        System.out.println(res);  
+	        System.out.println(res); 
+	        }
+	       } 
 	        
 	    	
 	    }  
